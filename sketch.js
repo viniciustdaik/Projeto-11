@@ -14,6 +14,7 @@ var gamestate = "play";
 var gameover, gameover_image;
 //var life = 3;
 var drink, drink_image;
+var bomb_animation;
 
 function preload(){
   //imagens pré-carregadas
@@ -23,6 +24,8 @@ function preload(){
   bomb_image = loadImage("bomb.png");
   gameover_image = loadImage("gameOver.png");
   drink_image = loadImage("energyDrink.png");
+  bomb_animation = loadAnimation("bomb.png", "bomb-activated.png", "bomb-activated2.png", "bomb-activated3.png",
+   "bomb-activated4.png", "bomb-activated5.png", "bomb-activated6.png");
 }
 
 function setup(){
@@ -51,7 +54,7 @@ function setup(){
   bomb.addImage("bomb", bomb_image);
   bomb.scale = 0.08;
 
-  bomb2 = createSprite(110, -290, 5, 5);
+  bomb2 = createSprite(100, -290, 5, 5);
   bomb2.addImage("bomb", bomb_image);
   bomb2.scale = 0.08;
   
@@ -132,14 +135,17 @@ if(coin3.y > 425){
 if(bomb.y > 425){
   bomb.visible = true;
   bomb.y = -80
+  bomb.addImage("bomb", bomb_image);
 }
 if(bomb2.y > 425){
   bomb2.visible = true;
   bomb2.y = -290
+  bomb2.addImage("bomb", bomb_image);
 }
 if(bomb3.y > 425){
   bomb3.visible = true;
   bomb3.y = -370
+  bomb3.addImage("bomb", bomb_image);
 }
 if(runner.isTouching(coin)){
   coin.visible = false;
@@ -160,19 +166,19 @@ if(runner.isTouching(drink)){
 if(runner.isTouching(bomb)){
   bomb.visible = false;
   gamestate = "over";
-  //bomb.addAnimation("explode", explode_animation);
+  //bomb.addAnimation("explode", bomb_animation);
   //life = life-1;
 }
 if(runner.isTouching(bomb2)){
   bomb2.visible = false;
   gamestate = "over";
-  //bomb.addAnimation("explode", explode_animation);
+  //bomb.addAnimation("explode", bomb_animation);
   //life = life-1;
 }
 if(runner.isTouching(bomb3)){
   bomb3.visible = false;
   gamestate = "over";
-  //bomb.addAnimation("explode", explode_animation);
+  //bomb.addAnimation("explode", bomb_animation);
   //life = life-1;
 }
   drawSprites();
@@ -182,3 +188,4 @@ if(runner.isTouching(bomb3)){
     gamestate = "play";
   }
 }*/
+
