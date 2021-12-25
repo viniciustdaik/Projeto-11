@@ -84,10 +84,10 @@ if(ground.y > 400){
 runner.collide(leftcorner);
 runner.collide(rightcorner);
 
-if(keyIsDown(LEFT_ARROW)&&gamestate == "play"||keyIsDown("A")&&gamestate == "play"){
+if(keyIsDown(LEFT_ARROW)&&gamestate == "play"||keyIsDown('A')&&gamestate == "play"){
   runner.position.x = runner.position.x -3;
 }
-if(keyIsDown(RIGHT_ARROW)&&gamestate == "play"||keyIsDown("D")&&gamestate == "play"){
+if(keyIsDown(RIGHT_ARROW)&&gamestate == "play"||keyIsDown('D')&&gamestate == "play"){
   runner.position.x = runner.position.x +3;
 }
 if(gamestate == "over"){
